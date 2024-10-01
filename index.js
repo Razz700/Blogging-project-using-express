@@ -20,19 +20,12 @@ console.log(e);
 /////////////////
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-// app.use(session({
-//     secret:process.env.SESSION_SECRET,
-//     resave:true,
-//     saveUninitialized:true
-// }));
-const MongoStore = require('connect-mongo');
-
 app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: true,
-  saveUninitialized: true,
-  store: MongoStore.create({ mongoUrl: `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.1r3c2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`})
+    secret:process.env.SESSION_SECRET,
+    resave:true,
+    saveUninitialized:true
 }));
+
 
 ////for deploy on vercel only this path.join code requires///////////
 app.set('views', path.join(__dirname, 'views')); // Ensure this line is added
