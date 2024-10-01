@@ -8,6 +8,8 @@ const mongoose=require('mongoose');
 const { router } = require('./router.js');
 const { checkAuth } = require('./utils/auth.js');
 require('dotenv').config();
+const path = require('path');
+
 
 
 mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.1r3c2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`).then((res)=>{
@@ -22,8 +24,10 @@ app.use(session({
     secret:process.env.SESSION_SECRET,
     resave:true,
     saveUninitialized:true
-}))
+}));
+app.set('views', path.join(__dirname, 'views')); // Ensure this line is added
 app.set('view engine','ejs');
+
 app.use(checkAuth);
 app.use(router);
 
