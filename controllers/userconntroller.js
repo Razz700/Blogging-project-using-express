@@ -39,7 +39,7 @@ const login=async(req,res)=>{
         const passwordMatch=await brcypt.compare(password,existingUser.password);
         if(passwordMatch){
          req.session.userid=existingUser._id;
-           return res.redirect('/'); 
+           //return res.redirect('/'); 
             const redirectUrl = `${req.protocol}://${req.get('host')}/`;
             console.log(`Redirecting to: ${redirectUrl}`);
             return res.redirect(redirectUrl);
