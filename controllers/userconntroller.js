@@ -30,6 +30,7 @@ const registerUser=async(req,res)=>{
     }
 }
 const login=async(req,res)=>{
+  res.render('home.ejs')
     try{
         const {email,password}=req.body;
         const existingUser=await Users.findOne({email});
@@ -39,7 +40,8 @@ const login=async(req,res)=>{
         const passwordMatch=await brcypt.compare(password,existingUser.password);
         if(passwordMatch){
          req.session.userid=existingUser._id;
-           return res.redirect('https://blogging-project-using-express.vercel.app/'); 
+         console.log('hellow')
+           return res.redirect('/'); 
             // const redirectUrl = `${req.protocol}://${req.get('host')}/`;
             // console.log(`Redirecting to: ${redirectUrl}`);
             // return res.redirect(redirectUrl);
@@ -63,7 +65,7 @@ const allUsers=(req,res)=>{
 ///////////////////logout//////////////////////
 const logout=(req,res)=>{
   req.session.destroy(()=>{
-   return res.redirect('https://blogging-project-using-express.vercel.app/login');
+   return res.redirect('/login');
   });
 }
 module.exports={signupPage,loginPage,registerUser,login,allUsers,logout}
