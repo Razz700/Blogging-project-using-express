@@ -1,6 +1,6 @@
 const requireAuth=(req,res,next)=>{
     if(!req.session.userid){
-       return res.redirect('/login');
+       return res.redirect('https://blogging-project-using-express.vercel.app/login');
     }
     next();
 }

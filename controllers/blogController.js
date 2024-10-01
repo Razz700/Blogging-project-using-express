@@ -57,7 +57,7 @@ const createBlog=async (req,res)=>{
      });
      newblog.save()
     .then(response=>
-        res.redirect('/myblog')
+        res.redirect('https://blogging-project-using-express.vercel.app/myblog')
     )
      .catch(err=>{
         return res.render('addblog.ejs',{message:'Blogs cannot be created at this time. Please try again later'});     
@@ -72,7 +72,7 @@ const updateBlog=(req,res)=>{
         const {blogId}=req.query;
         Blogs.findByIdAndUpdate({_id:blogId }, req.body)
             .then(response=>{
-res.redirect('/myblog')
+res.redirect('https://blogging-project-using-express.vercel.app/myblog')
             })
             .catch(err=>{
                 return res.render('editblog.ejs',{message:'Cannot updated blog. please try later.'});     
@@ -88,15 +88,15 @@ const deleteBlog=async(req,res)=>{
         const {blogId}=req.query;
         Blogs.findOneAndDelete({_id:blogId})
         .then(response=>{
-            res.redirect('/myblog')
+            res.redirect('https://blogging-project-using-express.vercel.app/myblog')
         })
         .catch(err=>{
             const error=base64.encode('Blog cannot be deleted. Please try again later.');
-        res.redirect(`/myblog?message=${error}`);   
+        res.redirect(`https://blogging-project-using-express.vercel.app/myblog?message=${error}`);   
         })
     }catch(err){
         const error=base64.encode('Blog cannot be deleted. Please try again later.');
-        res.redirect(`/myblog?message=${error}`);   
+        res.redirect(`https://blogging-project-using-express.vercel.app/myblog?message=${error}`);   
     }
 }
 

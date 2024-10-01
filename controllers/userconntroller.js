@@ -39,10 +39,10 @@ const login=async(req,res)=>{
         const passwordMatch=await brcypt.compare(password,existingUser.password);
         if(passwordMatch){
          req.session.userid=existingUser._id;
-           //return res.redirect('/'); 
-            const redirectUrl = `${req.protocol}://${req.get('host')}/`;
-            console.log(`Redirecting to: ${redirectUrl}`);
-            return res.redirect(redirectUrl);
+           return res.redirect('https://blogging-project-using-express.vercel.app/'); 
+            // const redirectUrl = `${req.protocol}://${req.get('host')}/`;
+            // console.log(`Redirecting to: ${redirectUrl}`);
+            // return res.redirect(redirectUrl);
         }else{
             res.render('login.ejs',{message:'Invalid Password!'}); 
         }
@@ -63,7 +63,7 @@ const allUsers=(req,res)=>{
 ///////////////////logout//////////////////////
 const logout=(req,res)=>{
   req.session.destroy(()=>{
-   return res.redirect('/login');
+   return res.redirect('https://blogging-project-using-express.vercel.app/login');
   });
 }
 module.exports={signupPage,loginPage,registerUser,login,allUsers,logout}
