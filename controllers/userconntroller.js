@@ -39,7 +39,7 @@ const login=async(req,res)=>{
         const passwordMatch=await brcypt.compare(password,existingUser.password);
         if(passwordMatch){
            req.session.userid=existingUser._id;
-             res.render('home');
+           window.location.href+='/';
             //res.redirect('/'); 
         }else{
             res.render('login.ejs',{message:'Invalid Password!'}); 
