@@ -30,7 +30,6 @@ const registerUser=async(req,res)=>{
     }
 }
 const login=async(req,res)=>{
-  res.render('home.ejs')
     try{
         const {email,password}=req.body;
         const existingUser=await Users.findOne({email});
