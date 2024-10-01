@@ -25,6 +25,7 @@ app.use(session({
     resave:true,
     saveUninitialized:true
 }));
+////for deploy on vercel only this path.join code requires///////////
 app.set('views', path.join(__dirname, 'views')); // Ensure this line is added
 app.set('view engine','ejs');
 
