@@ -39,8 +39,7 @@ const login=async(req,res)=>{
         const passwordMatch=await brcypt.compare(password,existingUser.password);
         if(passwordMatch){
            req.session.userid=existingUser._id;
-            //res.redirect('/'); 
-            res.redirect('https://blogging-project-using-express.vercel.app/'); 
+            res.redirect('/'); 
         }else{
             res.render('login.ejs',{message:'Invalid Password!'}); 
         }
