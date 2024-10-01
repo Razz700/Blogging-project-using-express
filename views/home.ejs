@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <%-include('./partials/style.ejs')%>
+</head>
+<body>
+    <%-include('./partials/header.ejs') %>
+      <div class="main-myblog">
+        <h1>All Blogs</h1>
+        <div class="sort-section">
+            <label for="sort">Sort By:</label>
+            <select name="sort" id="sort" onchange="window.location.href=`/?pages=1&sort=`+this.value">
+              <option value="title" <% if(sort==='title'){ %>selected <%}%> >Title</option>
+              <option value="createdAt" <% if(sort==='createdAt'){ %>selected <%}%> >Date</option>
+            </select>
+        </div>
+        <% if(message){ %>
+            <p><%= message%></p> 
+         <% } %>
+        <% if(blogsData.length>0){
+          blogsData.forEach((item,i)=>{ %>
+            <div class="blog">
+                <h3><%=item.title %></h3>
+                <p><%=item.body %></p>
+                <p>userId: <%=item._id%></p>
+                <p><%=item.createdAt%></p>
+            </div>
+        <% }) } %>
+        <div class="pagination" id="pagination">
+            <%for(let i=1;i<=pages;i++){%>
+              <a href="/?page=<%=i%>"  <% if(i==current){%> class="activePage"  <%}%> >
+                <%=i%>
+              </a>
+            <%}%>
+        </div>
+    </div>
+</body>
+</html>

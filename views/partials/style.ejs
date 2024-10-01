@@ -1,0 +1,235 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+    *{
+      font-family: "Inter", sans-serif;  
+      box-sizing: border-box;
+      padding: 0px;
+      margin: 0px;
+    }
+    :root{
+      --theme:rgb(17, 97, 134);
+      --themecolor:rgba(24, 42, 107, 0.8);
+    }
+    .main-div{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     background: linear-gradient(to right,rgb(235, 230, 236),rgb(235, 235, 235));
+    }
+    h2{
+        padding: 5px 0px;
+       text-align: center;
+       color: var(--themecolor);
+    }
+    .wrapper{
+     min-width:fit-content;
+     width: 400px;
+     padding: 20px 30px;
+     height: fit-content;
+     border-radius: 10px;
+     box-shadow: 0px 0px 5px 0px gray;
+     background-color: rgba(255, 255, 255, 0.4);
+    }
+    input{
+        border-radius: 5px;
+        outline: none;
+        padding: 5px;
+        margin: 5px 0px;
+        border: 1px solid gray;
+        width: 100%;
+        min-width: fit-content;
+    }
+    button{
+        padding: 10px;
+        border: none;
+        border-radius: 0px;
+        width: 100%;
+        background-color: var(--theme);
+        cursor: pointer;
+        color:white;
+        font-weight: 500;
+    }
+    button:hover{
+        background-color: rgb(50, 131, 150);
+    }
+    a{
+        display: block;
+        width: 100%;
+        padding: 5px;
+        color: var(--theme);
+        text-decoration: none;
+       text-align: center;
+       margin:5px auto;
+       font-size: 0.8rem;
+    }
+      a:hover{
+        color: rgb(114, 163, 194);
+      }
+
+      /* now header partials */
+      .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        width: 100%;
+        background-color: var(--theme);
+        margin-bottom: 20px;
+        position: fixed;
+        top:0px;
+      }
+      .header>.title{
+        color:whitesmoke;
+        font-weight: 700;
+        font-size: 1.3rem;
+      }
+      .tabs{
+        display: flex;
+        justify-content: space-between;
+        gap:12px;
+        align-items: center;
+      }
+      .tab{
+        border-bottom: 2px solid transparent;
+        cursor: pointer;
+        font-weight: 600;
+        color: white;
+      }
+      .tab>a{
+        text-decoration: none;
+        color: white;
+        font-weight: 600;
+        padding: 8px 12px;
+        margin: 0px;
+      }
+      .tab:hover{
+        border-bottom: 2px solid white;
+      }
+      .header .logout{
+        background-color: rgb(159, 26, 26);
+        padding: 0px 12px;
+        cursor: pointer;
+        font-weight: 600;
+        border-radius: 5px;
+      }
+      .header .logout a{
+        color: white;
+      }
+      .header .logout:hover{
+        background-color: rgb(114, 30, 30);
+      }
+      /* home */
+      .main-myblog h1{
+        padding: 10px;
+        text-align: center;
+      }
+      .sort-section select,label{
+        padding: 5px;
+      }
+      .sort-section label{
+        padding-left: 20px;
+      }
+      .pagination{
+        margin-top: 20px;
+        display: flex;
+        gap:10px;
+        justify-content: center;
+        align-items: center;
+      }
+      #pagination a{
+        padding: 8px;
+        border: 1.5px solid var(--theme);
+        text-decoration: none;
+        background-color: white;
+        color: black;
+        width: fit-content;
+        margin: 0px;
+        text-align: center;
+      }
+      #pagination a:hover{
+        background-color: rgb(138, 171, 200);
+      }
+      #pagination .activePage{
+        background-color: var(--theme);
+        color: white;
+        font-weight: 700;
+      }
+    /* myblogs */
+    .main-myblog{
+      padding: 10px;
+      padding-top: 100px;
+    }
+    .main-myblog a{
+      padding: 10px;
+      background-color: rgb(36, 137, 220);
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: 600;
+      color: white;
+    }
+    .main-myblog a:hover{
+      background-color: rgb(31, 113, 180);
+    }
+    .main-myblog .blog{
+      box-shadow: 0px 0px 5px 0px gray;
+      margin: 20px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .main-myblog .blog:hover{
+      box-shadow: 0px 4px 8px 0px gray;
+    }
+    .main-myblog .blog h3{
+      padding-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    .main-myblog .blog p{
+      font-size: 0.9rem;
+    }
+    .main-myblog .blog-actions{
+      display: flex;
+      justify-content: space-between;
+      gap:20px;
+      padding-top: 10px;
+    }
+    .main-myblog .blog-actions>a{
+      margin: 0px;
+      background-color: rgb(236, 236, 236);
+      border:none;
+      border-radius: 5px;
+      padding: 8px 20px;
+      cursor: pointer;
+      width: fit-content;
+      color:black;
+      font-size: 0.8rem;
+    }
+    .main-myblog .blog-actions .edit-btn:hover{
+      background-color: rgb(32, 230, 32);
+    }
+    .main-myblog .blog-actions .delete-btn:hover{
+      background-color: rgb(243, 22, 22);
+    }
+    .main-addblog{
+      padding: 20px;
+      box-shadow: 0px 0px 5px 0px gray;
+      margin: 20px;
+      margin-top: 100px;
+      border-radius: 10px;
+    }
+    .main-addblog form input{
+      padding: 10px;
+      border: 1px solid gray;
+      font-weight: 600;
+    }
+    .main-addblog form textarea{
+      padding: 10px;
+      width: 100%;
+      height: 120px;
+    }
+    .main-addblog form input[type='submit']{
+      cursor: pointer;
+    }
+</style>

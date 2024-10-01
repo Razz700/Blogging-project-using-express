@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Blog</title>
+    <%-include('./partials/style.ejs')%>
+</head>
+<body>
+    <%-include('./partials/header.ejs') %>
+    <div class="main-addblog">
+        <h2>Add your Blog Here</h2>
+        <form method="post" action="/createblog">
+            <input type="text" name="title" placeholder="Enter Blog title here">
+            <br><br>
+            <textarea name="body" placeholder="Enter blog body here"></textarea>
+            <br><br>
+            <input type="submit" value="Add">
+            <% if(message){ %>
+                <p><%= message%></p> 
+             <% } %>
+        </form>
+    </div> 
+</body>
+</html>

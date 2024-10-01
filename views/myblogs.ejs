@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBlogs</title>
+    <%-include('./partials/style.ejs')%>
+</head>
+<body>
+    <%-include('./partials/header.ejs') %>
+    <div class="main-myblog">
+        <a href="/addblog">Add Blog +</a>
+        <% if(message){ %>
+            <p><%= message%></p> 
+         <% } %>
+        <% if(blogData.length>0){
+          blogData.forEach((item,i)=>{ %>
+            <div class="blog">
+                <h3><%=item.title %></h3>
+                <p><%=item.body %></p>
+                <div class="blog-actions">
+                    <a href="/editblog?blogId=<%=item._id%>" class="edit-btn">Edit</a>
+                    <a href="/deleteblog?blogId=<%=item._id%>" class="delete-btn">Delete</a>
+                </div>
+            </div>
+    
+        <% }) } %>
+    </div>
+</body>
+</html>
