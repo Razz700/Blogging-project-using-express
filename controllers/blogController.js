@@ -14,9 +14,9 @@ const home=async(req,res)=>{
 
         const count=await Blogs.countDocuments();
         const totalPages=Math.ceil(count/perPage);
-        res.render('home',{message:null,blogsData:blogs,current:page,pages:totalPages,sort})
+        res.render('home.ejs',{message:null,blogsData:blogs,current:page,pages:totalPages,sort})
     }catch(err){
-       res.render('home',{message:null,blogsData:null})
+       res.render('home.ejs',{message:null,blogsData:null})
     }
 
 }
